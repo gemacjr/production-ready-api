@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	transportHTTP "github.com/gemacjr/go-rest-api-course/internal/transport/http"
+	transportHTTP "github.com/gemacjr/production-ready-api/internal/transport/http"
 	
 )
 
@@ -17,7 +17,7 @@ func (app *App) Run() error {
 	fmt.Println("Setting Up Our APP")
 
 	handler := transportHTTP.NewHandler()
-	handler.SetupRoutes()
+	handler.SetUpRoutes()
 
 	if err := http.ListenAndServe(":8080", handler.Router); err != nil {
 		fmt.Println("Failed to set up server")
